@@ -56,3 +56,8 @@ if __name__=="__main__":
     exit(a.exec_())
     
     
+    #Bar graphics
+    https://www.pythonguis.com/tutorials/creating-your-own-custom-widgets/
+    
+    
+    
