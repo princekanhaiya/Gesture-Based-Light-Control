@@ -23,6 +23,9 @@ https://teams.live.com/meet/958116978643
 
 Working on python GUI
 >>pip install pyqt5
+       sudo apt-get update
+       sudo apt-get install qt5-default
+       sudo apt-get install qtcreator
 >>pip install QLed
 
 demo code
