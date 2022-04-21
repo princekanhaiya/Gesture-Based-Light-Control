@@ -22,11 +22,17 @@ https://teams.live.com/meet/958116978643
 
 
 Working on python GUI
->>pip install pyqt5
-       sudo apt-get update
-       sudo apt-get install qt5-default
-       sudo apt-get install qtcreator
+>>sudo apt-get install python3-pyqt5
+>>sudo apt-get install python3-pyqt5.qtsvg
 >>pip install QLed
+
+if you want graphics to install
+#      sudo apt-get install qt5-default
+#       sudo apt-get install qtcreator
+
+
+#if want to convert qt gui to py
+>>pyuic5.exe -x name.ui -o name.py
 
 demo code
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout
