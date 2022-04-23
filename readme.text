@@ -34,6 +34,9 @@ if you want graphics to install
 #if want to convert qt gui to py
 >>pyuic5.exe -x name.ui -o name.py
 
+All threats running in PI user
+>>top -u pi H
+
 demo code
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout
 from QLed import QLed
