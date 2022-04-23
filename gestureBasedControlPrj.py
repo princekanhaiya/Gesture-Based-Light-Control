@@ -4,6 +4,7 @@ import numpy as np
 import time
 import math
 import handTrackingModule as htm
+import movingAverage as mv
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
 led_pin = 12           
@@ -27,6 +28,8 @@ def main():
     cap.set(cv.CAP_PROP_FRAME_WIDTH, cap_width)
     cap.set(cv.CAP_PROP_FRAME_HEIGHT, cap_height)
     detector = htm.handDetector(maxHands=1,detectionCon=0.7)
+
+    movingAve = mv.MovingAverage(10)
     
     while True:
         # Camera Capture #####################################################
@@ -45,10 +48,10 @@ def main():
             x2, y2 = lmList[8][1], lmList[8][2]
             cx, cy = (x1 + x2) // 2, (y1 + y2) // 2
     
-            cv.circle(img, (x1, y1), 15, (255, 0, 255), cv.FILLED)
-            cv.circle(img, (x2, y2), 15, (255, 0, 255), cv.FILLED)
-            cv.line(img, (x1, y1), (x2, y2), (255, 0, 255), 2)
-            cv.circle(img, (cx, cy), 15, (255, 0, 255), cv.FILLED)
+            cv.circle(img, (x1, y1), 15, (255, 0, 255),3)
+            cv.circle(img, (x2, y2), 15, (255, 0, 255),3)
+            cv.line(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
+            cv.circle(img, (cx, cy), 15, (255, 0, 255),3)
     
             length = math.hypot(x2 - x1, y2 - y1)
             # print(length)
@@ -60,15 +63,20 @@ def main():
             ledBar = np.interp(length, [50, 150], [400, 150])
             ledPwmPer = np.interp(length, [50, 150], [0, 100])
 
-            print(int(length), ledPwm)
-            pwm.ChangeDutyCycle(ledPwm)
+            # print(int(length), ledPwm)
+            movLedPwm=movingAve.next(ledPwm)
+            stopLength=math.hypot(lmList[17][1]- lmList[20][1], lmList[17][1] - lmList[20][2])
     
-            if length < 50:
-                cv.circle(img, (cx, cy), 15, (0, 255, 0), cv.FILLED)
- 
-            cv.rectangle(img, (50, 150), (85, 400), (255, 0, 0), 3)
-            cv.rectangle(img, (50, int(ledBar)), (85, 400), (255, 0, 0), cv.FILLED)
-            cv.putText(img, f'{int(ledPwmPer)} %', (40, 450), cv.FONT_HERSHEY_COMPLEX,1, (255, 0, 0), 3)
+            if stopLength>200:
+                pwm.ChangeDutyCycle(int(movLedPwm))
+                # print(stopLength)
+
+                if length < 50:
+                    cv.circle(img, (cx, cy), 15, (0, 255, 0), cv.FILLED)
+    
+                cv.rectangle(img, (50, 150), (85, 400), (0, 255, 0), 4)
+                cv.rectangle(img, (50, int(ledBar)), (85, 400), (0, 0, 255), cv.FILLED)
+                cv.putText(img, f'{int(ledPwmPer)} %', (20, 450), cv.FONT_HERSHEY_COMPLEX,2, (0, 0, 255), 3)
 
         #Frame rate
         cTime = time.time()
