@@ -8,3 +8,28 @@
 ![Rasberry Pi](https://img.shields.io/badge/Raspberry%20Pi-A22846?style=flat&logo=Raspberry%20Pi&logoColor=white)
 ![mediapipe](https://img.shields.io/badge/-mediapipe-brightgreen)
 
+## Problem Statement
+- The proposed system shows that hand gestures can be used to easily control electronic home appliances. 
+- Here concepts like deep learning, artificial intelligence, multithreading, multiprocessing and automation are used to achieve the target. 
+- This technique is used to control home appliances like fan, light, etc via the camera without the use of sensors. 
+- One of the primary areas of targeted application is to help disabled people to operate their home appliances from a given fixed position with ease via the camera.
+ 
+## Software Overall Plan 
+![image](https://user-images.githubusercontent.com/31900538/170975927-4c54b907-4742-4435-bd66-e09bd12819dc.png)
+
+## Use Case Diagram
+![image](https://user-images.githubusercontent.com/31900538/170976421-36392be4-3799-43be-9541-f5b3c16860cf.png)
+
+## State Diagram Overview
+![image](https://user-images.githubusercontent.com/31900538/170976978-5197ea07-7957-40fc-85ee-a4e8b8c4446d.png)
+
+![image](https://user-images.githubusercontent.com/31900538/170977073-f996c5d1-4146-4a03-9539-9c4911d8ca2c.png)
+
+
+## Class and Sequence diagram
+![image](https://user-images.githubusercontent.com/31900538/170976855-ee370f51-9665-4c13-b56a-6493ca3e3534.png)
+
+
+
+
+
