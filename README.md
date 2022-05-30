@@ -29,7 +29,8 @@
 ## Class and Sequence diagram
 ![image](https://user-images.githubusercontent.com/31900538/170976855-ee370f51-9665-4c13-b56a-6493ca3e3534.png)
 
-
+## Watch Demo video
+[![Watch the video](https://i9.ytimg.com/vi/73V-XpB1YTk/mq2.jpg?sqp=CNzJ0pQG&rs=AOn4CLCPjyjiuZ-zxc9_djf455i7qFyuLw)](https://youtu.be/73V-XpB1YTk)
 
 
 
